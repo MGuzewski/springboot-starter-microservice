@@ -12,7 +12,7 @@ public interface UserMapper {
     @Mapping(target = "id", ignore = true)
     @Mapping(target = "createdAt", ignore = true)
     @Mapping(target = "updatedAt", ignore = true)
-    @Mapping(target = "password", expression = "java( passwordEncoder.encode(request.password()) )")
+    @Mapping(target = "password", expression = "java( passwordEncoder.encode(request.getPassword()) )")
     User toEntity(UserCreateRequest request, @Context PasswordEncoder passwordEncoder);
 
     UserResponse toResponse(User user);

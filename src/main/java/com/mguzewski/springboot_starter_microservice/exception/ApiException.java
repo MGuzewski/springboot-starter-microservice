@@ -7,16 +7,12 @@ import java.time.Instant;
 
 @Getter
 public class ApiException extends RuntimeException {
-    private Instant timestamp;
-    private HttpStatus httpStatus;
+    private final Instant timestamp;
+    private final HttpStatus httpStatus;
 
     protected ApiException(final String message, final HttpStatus httpStatus) {
         super(message);
         this.timestamp = Instant.now();
         this.httpStatus = httpStatus;
-    }
-
-    private ApiException() {
-
     }
 }
